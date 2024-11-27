@@ -1,0 +1,15 @@
+<VirtualHost *:{{ app_port }}>
+    ServerAdmin {{ server_admin_email }}
+    ServerName {{ server_name }}
+    DocumentRoot {{ app_directory }}
+
+    <Directory {{ app_directory }}>
+        Options -Indexes +FollowSymLinks
+        AllowOverride None
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/webapp-error.log
+    CustomLog ${APACHE_LOG_DIR}/webapp-access.log combined
+</VirtualHost>
+

@@ -1,0 +1,16 @@
+---
+# vars/webapp_vars.yml
+# Apache package names for different OS families
+apache_package: "{{ 'apache2' if ansible_os_family == 'Debian' else 'httpd' }}"
+apache_service: "{{ 'apache2' if ansible_os_family == 'Debian' else 'httpd' }}"
+apache_conf_dir: "{{ '/etc/apache2/sites-enabled' if ansible_os_family == 'Debian' else '/etc/httpd/conf.d' }}"
+
+# Application settings
+app_name: "My Web Application"
+app_directory: "/var/www/webapp"
+app_environment: "production"
+app_port: 80
+
+# Server configuration
+server_admin_email: "admin@example.com"
+server_name: "www.example.com"
